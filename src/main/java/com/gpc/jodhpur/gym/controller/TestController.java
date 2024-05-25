@@ -10,6 +10,6 @@ public class TestController {
 
     @GetMapping(value = "/ping")
     public String test() {
-        return "Hey buddy!! I am working fine.";
+        return "Hey buddy!! I am working fine. Just chill.";
     }
 }
