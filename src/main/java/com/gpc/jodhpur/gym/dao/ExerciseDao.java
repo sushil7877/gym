@@ -11,8 +11,10 @@ import java.util.*;
 @Slf4j
 public class ExerciseDao {
 
-    public List<ExerciseTypeDTO> EXERCISE_TYPE_LIST = Arrays.asList();
-//new ExerciseTypeDTO(1, "Abs Beginner", "Beginner", 20, 5)
+    public List<ExerciseTypeDTO> EXERCISE_TYPE_LIST = Arrays.asList(
+            new ExerciseTypeDTO(1, "Abs Beginner", "Beginner", 20, 5),
+            new ExerciseTypeDTO(2, "Chest Beginner", "Beginner", 20, 5)
+    );
     public Map<Long, List<ExerciseWidgetDTO>> EXERCISE_WIDGET_MAP = new HashMap<>();
 
     public List<ExerciseTypeDTO> getExerciseTypes() {
