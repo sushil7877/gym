@@ -1,0 +1,27 @@
+.main{
+    background: url("./home.jpg") no-repeat center ;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    opacity: .5;
+}
+.tilt{
+    transform: skewX(-9deg);
+}
+.lp_inner_img{
+    background:url("/images/login.jpeg") no-repeat ;
+    background-size: cover;
+}
+
+
+
+/* slider css */
+
+.ftimg{
+    background:url('./wave.svg') no-repeat;
+    background-size: cover;
+}
+.cloud{
+    background:url('./cloud.svg') no-repeat;
+    background-size: cover;
+}

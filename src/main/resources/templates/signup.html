@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex w-[100%] h-[100%]  relative cursor-default">
+        <div class="w-[60%] bg-blue-400 h-[100vh] tilt absolute left-[-65px] opacity-8 0"></div>
+        <div class="absolute mx-[10vw] lg:mx-[20vw] my-[10vh] rounded-[40px] w-[80vw] lg:w-[60vw] h-[80vh] bg-blue-800 shadow-lg overflow-hidden flex items-center">
+            <div class="w-[100%] opacity-90 md:w-[55%] h-[100%]  lp_inner_img"></div>
+            <div class="w-[90%] mx-[5vw] md:mx-[0px] absolute md:static md:w-[45%] items-center text-white ">
+                <p class="text-center text-4xl mb-[40px]">Sign Up.....</p>
+
+                <form action="login" method="get" name="form">
+                <div class="text-center my-4"><input type="text" name="name" id="name" placeholder="Name" class="bg-transparent placeholder:text-white border-b-2 p-2 w-[80%] outline-0"></div>
+                <div class="text-center my-4"><input type="email" name="email" id="" placeholder="Email" class="bg-transparent placeholder:text-white border-b-2 p-2 w-[80%] outline-0"></div>
+                <div class="text-center my-4"><input type="number" name="num" id="" placeholder="Phone" class="bg-transparent placeholder:text-white border-b-2 p-2 w-[80%] outline-0"></div>
+<!--                <div class="flex w-[80%] mx-auto items-center">-->
+<!--                    <div class="border-2 w-[45%] h-[50px]">Captcha</div>-->
+<!--                    <div class="text-center my-4 w-[55%]"><input type="number" name="" id="" placeholder="Captcha" class="bg-transparent placeholder:text-white border-b-2 p-2 w-[80%] outline-0"></div>-->
+<!--                    -->
+<!--                </div>-->
+                <div class="text-center my-6"><a href="./login"><input type="submit" name="" id=""  class="bg-transparent placeholder:text-white border-2  px-4 py-1 rounded-2xl hover:bg-blue-500/80 w-[80%] cursor-pointer" value="SignUp"></a></div>
+                <div class="text-sm mx-[10%]">Already have a account ? <span class="text-blue-200"><a href="./login">Sign In</a></span></div>
+                
+            </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

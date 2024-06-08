@@ -122,4 +122,20 @@ public class HomeController {
         customerService.deleteCustomer(customerId);
         return "redirect:/customer";
     }
+
+    @GetMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("title", "Gym Fitness Center");
+        model.addAttribute("customers", customerService.getAllCustomerDetails());
+        model.addAttribute("customerDto", new com.gpc.jodhpur.gym.dto.CustomerFormDTO());
+        return "login"; // This will look for a template named "customer.html" in src/main/resources/templates
+    }
+
+    @GetMapping("/signup")
+    public String signup(Model model) {
+        model.addAttribute("title", "Gym Fitness Center");
+        model.addAttribute("customers", customerService.getAllCustomerDetails());
+        model.addAttribute("customerDto", new com.gpc.jodhpur.gym.dto.CustomerFormDTO());
+        return "signup"; // This will look for a template named "customer.html" in src/main/resources/templates
+    }
 }
