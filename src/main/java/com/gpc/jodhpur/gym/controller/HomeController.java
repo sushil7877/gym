@@ -7,7 +7,6 @@ import com.gpc.jodhpur.gym.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -108,7 +107,7 @@ public class HomeController {
         model.addAttribute("title", "Gym Fitness Center");
         model.addAttribute("customers", customerService.getAllCustomerDetails());
         model.addAttribute("customerDto", new com.gpc.jodhpur.gym.dto.CustomerFormDTO());
-        return "customer1"; // This will look for a template named "customer.html" in src/main/resources/templates
+        return "customer"; // This will look for a template named "customer.html" in src/main/resources/templates
     }
 
     @PostMapping("/customer")
