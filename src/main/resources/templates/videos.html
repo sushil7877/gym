@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .video-item {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .navbar{
+            width: 100%;
+            height: 10vh;
+            background-color: #039;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar h1{
+            font-weight: 600;
+        }
+        .container{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 901px) and (max-width: 1200px) {
+            .video-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1 >Common Home Exercises</h1>
+        </div>
+        <div class="video-grid">
+            <div class="video-item" data-video-id="98h26Ayke0s"></div>
+            <div class="video-item" data-video-id="V_bSLebtVJs"></div>
+            <div class="video-item" data-video-id="93kUVEAqiv8"></div>
+            <div class="video-item" data-video-id="vM40o2TiJfM"></div>
+            <div class="video-item" data-video-id="16-WWEQNiK0"></div>
+            <div class="video-item" data-video-id="E-_LxciEon4"></div>
+            <div class="video-item" data-video-id="a6ANkE4emF8"></div>
+            <div class="video-item" data-video-id="7a_WhOoegHE"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to embed YouTube video with autoplay functionality on hover
+        function createVideoElement(videoId) {
+            return `<iframe src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
+
+        document.querySelectorAll('.video-item').forEach(function (el) {
+            var videoId = el.getAttribute('data-video-id');
+            el.innerHTML = createVideoElement(videoId);
+
+            var iframe = el.querySelector('iframe');
+            var player;
+
+            // Function to post messages to the YouTube iframe
+            function postMessageToPlayer(action) {
+                if (iframe.contentWindow) {
+                    iframe.contentWindow.postMessage(JSON.stringify({
+                        event: 'command',
+                        func: action,
+                        args: []
+                    }), '*');
+                }
+            }
+
+            el.addEventListener('mouseenter', function () {
+                postMessageToPlayer('playVideo');
+            });
+
+            el.addEventListener('mouseleave', function () {
+                postMessageToPlayer('pauseVideo');
+            });
+        });
+    </script>
+</body>
+</html>

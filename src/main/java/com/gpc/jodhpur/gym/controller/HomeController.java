@@ -42,6 +42,13 @@ public class HomeController {
         return "at-home"; // This will look for a template named "at-home.html" in src/main/resources/templates
     }
 
+     @GetMapping("/videos")
+    public String atVideos(Model model) {
+        model.addAttribute("title", "Gym Fitness Center");
+        return "videos"; // This will look for a template named "at-home.html" in src/main/resources/templates
+    }
+    
+
     @GetMapping("/fat-loss")
     public String fatLoss(Model model) {
         model.addAttribute("title", "Gym Fitness Center");
